@@ -1,0 +1,1 @@
+<input type="text" name="search" placeholder="Search" class="mx-auto h-10 w-11/12 rounded-[20px] text-xl tracking-wide pl-4 bg-notwhite">
