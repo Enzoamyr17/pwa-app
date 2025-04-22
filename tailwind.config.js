@@ -12,6 +12,7 @@ export default {
                 greenfilter: 'rgb(0,100,35)',
                 green: 'rgb(0, 82, 27)',
                 greenCard: 'rgb(15, 74, 37)',
+                backbutt: 'rgb(0, 160, 59)',
                 notwhite: 'rgb(237, 237, 237)',
             },
             boxShadow: {

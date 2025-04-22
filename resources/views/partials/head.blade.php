@@ -8,3 +8,20 @@
 
 </head>
 <body class="flex flex-col">
+    <button
+        id="backButton"
+        onclick="history.back()"
+        class="hidden absolute left-2 top-2 z-50 h-12 aspect-square text-xl text-white bg-backbutt rounded-full shadow-md w-fit"
+    >
+        <
+    </button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const backButton = document.getElementById('backButton');
+        if (window.location.pathname !== '/') {
+            backButton.classList.remove('hidden');
+        }
+    });
+
+</script>
