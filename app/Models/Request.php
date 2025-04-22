@@ -10,6 +10,8 @@ class Request extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'partname',
         'partnum',

@@ -55,7 +55,7 @@ Route::prefix('req')->name('req.')->group(function () {
 
     Route::get('/view/{id}',[RequestController::class, 'view_request'])->name('view');
 
-    Route::get('/store',[RequestController::class, 'store_request'])->name('store');
+    Route::post('/store',[RequestController::class, 'store_request'])->name('store');
 
 });
 

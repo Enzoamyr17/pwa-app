@@ -4,44 +4,45 @@
 
 <h1 class="mx-auto font-semibold text-4xl">Part Request Form</h1>
 
-<form method="post" action="{{ route('req.store') }}">
+<form method="POST" action="{{ route('req.store') }}">
+    @CSRF
     <div class="flex flex-col gap-y-4 px-6 text-lg">
         <label>
             Part Name:
-            <input type="text" name="part_name" class="border border-green rounded-lg px-2 py-1 w-full">
+            <input type="text" name="partname" class="border border-green rounded-lg px-2 py-1 w-full">
         </label>
         <label>
             Part Number:
-            <input type="text" name="part_number" class="border border-green rounded-lg px-2 py-1 w-full">
+            <input type="text" name="partnum" class="border border-green rounded-lg px-2 py-1 w-full">
         </label>
         <label>
             Drawing Number:
-            <input type="text" name="drawing_number" class="border border-green rounded-lg px-2 py-1 w-full">
+            <input type="text" name="drawnum" class="border border-green rounded-lg px-2 py-1 w-full">
         </label>
         <label>
             Item/Position Number:
-            <input type="text" name="item_position_number" class="border border-green rounded-lg px-2 py-1 w-full">
+            <input type="text" name="posnum" class="border border-green rounded-lg px-2 py-1 w-full">
         </label>
         <label>
             Material Number:
-            <input type="text" name="material_number" class="border border-green rounded-lg px-2 py-1 w-full">
+            <input type="text" name="matnum" class="border border-green rounded-lg px-2 py-1 w-full">
         </label>
         <label>
             IMPA Number:
-            <input type="text" name="impa_number" class="border border-green rounded-lg px-2 py-1 w-full">
+            <input type="text" name="impa" class="border border-green rounded-lg px-2 py-1 w-full">
         </label>
         <label>
             Article Number:
-            <input type="text" name="article_number" class="border border-green rounded-lg px-2 py-1 w-full">
+            <input type="text" name="artnum" class="border border-green rounded-lg px-2 py-1 w-full">
         </label>
         <label>
             Specifications/Descriptions/Details:
-            <input type="text" name="specifications" class="border border-green rounded-lg px-2 py-1 w-full">
+            <input type="text" name="specs" class="border border-green rounded-lg px-2 py-1 w-full">
         </label>
         <label class="flex flex-col">
             Time Period:
             <span class="text-base opacity-80 pb-2 pl-1">When do you need the parts?</span>
-            <select name="time_period" class="border border-green rounded-lg px-2 py-1 w-full">
+            <select name="timeper" class="border border-green rounded-lg px-2 py-1 w-full">
                 <option value="">Select</option>
                 <option value="0">Urgent (3-7 Days)</option>
                 <option value="1">7 Days</option>
