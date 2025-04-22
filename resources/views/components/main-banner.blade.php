@@ -2,5 +2,5 @@
 <img 
     src="{{ asset('assets/images/' . $image) }}"
     alt="Banner Image"
-    class="rounded-[20px] w-11/12 mx-auto"
+    class="rounded-[20px] w-11/12 h-44 mx-auto"
     >

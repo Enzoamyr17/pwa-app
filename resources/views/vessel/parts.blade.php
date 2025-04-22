@@ -4,25 +4,40 @@
 
     <x-main-banner image="10.png" />
 
-    <h1 class="text-4xl font-bold ml-4 py-2 pb-3 text-green">Request for Parts</h1>
+    <h1 class="text-4xl font-bold ml-4 py-2 pb-3 text-green">Learn About Parts</h1>
 
     <x-search-bar />
 
     <x-landing-card 
-        href="{{ route('req.form') }}" 
-        title="Request Parts"
-    />
-
-    <x-landing-card 
-        href="{{ route('req.list') }}" 
-        title="List of Requests"
+        href="#" 
+        title="Anchor"
     />
 
     <x-landing-card 
         href="#" 
-        title="Drafts"
+        title="Bow"
+    />
+
+    <x-landing-card 
+        href="#" 
+        title="Bow Thrusters"
+    />
+
+    <x-landing-card 
+        href="#" 
+        title="Deck"
+    />
+
+    <x-landing-card 
+        href="#" 
+        title="Ship's Hull"
     />
     
+
+
+
+
+
 </div>
 
 @include('partials.navbar')

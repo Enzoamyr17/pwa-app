@@ -3,20 +3,14 @@ import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-    ],
-
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Poppins'],
             },
             colors: {
                 greenfilter: 'rgb(0,100,35)',
-                green: 'rgb(0, 44, 15)',
+                green: 'rgb(0, 82, 27)',
                 greenCard: 'rgb(15, 74, 37)',
                 notwhite: 'rgb(237, 237, 237)',
             },
@@ -28,6 +22,14 @@ export default {
             },
         },
     },
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+    ],
 
     plugins: [forms],
 };
