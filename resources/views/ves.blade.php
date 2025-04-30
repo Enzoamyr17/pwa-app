@@ -8,20 +8,20 @@
 
     <x-search-bar />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="{{ route('ves.parts') }}" 
         title="Learn About Vessel Parts"
         imageUrl="{{ asset('assets/images/9.png') }}"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Explore the Vessel"
         imageUrl="{{ asset('assets/images/14.png') }}"
 
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Emergency Exit Guides"
         imageUrl="{{ asset('assets/images/15.png') }}"

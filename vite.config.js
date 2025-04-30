@@ -9,9 +9,14 @@ export default defineConfig({
         }),
     ],
     server: {
-        host: 'pwa.local', // Use your custom domain
-        port: 5173,         // Optional, choose the port you want to use
-        https: false,       // Set to true if using HTTPS (requires SSL configuration)
-        strictPort: true
+        host: '0.0.0.0',           // <-- OK na ito
+        port: 5173,                // <-- OK na rin
+        strictPort: true,
+        allowedHosts: 'all',        // <-- OK
+        cors: true,                 // <-- OK
+        hmr: {
+            host: '192.168.1.11',  // <-- VERY IMPORTANT bro!! Your laptop's IP address
+            protocol: 'http',
+        },
     },
 });

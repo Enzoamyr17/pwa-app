@@ -8,42 +8,42 @@
 
     <x-search-bar />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="{{ route('hotl.EnforcementService') }}"
         title="Enforcement Service"
         subtitle="(02) 8524-9126"
         titleClass="m-auto text-center"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Manpower Development Service"
         titleClass="m-auto text-center"
         subtitle="(02) 8524-6517"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Domestic Shipping Service"
         titleClass="m-auto text-center"
         subtitle="(02) 8525-5030"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Maritime Safety Service"
         titleClass="m-auto text-center"
         subtitle="(02) 8523-5030"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Franchising Service"
         titleClass="m-auto text-center"
         subtitle="(02) 8521-8045"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Shipyards Regulation Service"
         titleClass="m-auto text-center"

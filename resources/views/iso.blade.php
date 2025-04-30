@@ -8,36 +8,12 @@
 
     <x-search-bar />
 
+    @foreach($modules as $item)
     <x-landing-card 
-        href="#" 
-        title="ISO/TC 8: Ships and marine technology"
+        href="{{ $item->link }}"
+        title="{{ $item->title }}"
     />
-
-    <x-landing-card 
-        href="#" 
-        title="ISO/TC 8/SC 1: Maritime safety"
-    />
-
-    <x-landing-card 
-        href="#" 
-        title="ISO/TC 8/SC 2: Marine environment protection"
-    />
-
-    <x-landing-card 
-        href="#" 
-        title="ISO/TC 8/SC 3: Piping and machinery"
-    />
-
-    <x-landing-card 
-        href="#" 
-        title="ISO/TC 8/SC 4: Outfittingand deck machinery"
-    />
-    
-    
-
-
-
-
+    @endforeach
 
 </div>
 

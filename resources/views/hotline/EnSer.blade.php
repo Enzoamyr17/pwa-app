@@ -17,11 +17,7 @@ Enforcement Services
 
 @section('content')
 
-Lorem ipsum dolor sit amet. Ut voluptas recusandae aut cumque ipsum qui dolor repudiandae. Ut perferendis asperiores est voluptatem dignissimos id asperiores omnis
-est debitis galisum non illum aliquam. Hic
-cupiditate magni ut rerum minima eos modi
-dolorem nam galisum vitae sed dolores esse
-ab delectus voluptas ut dolore consequatur.
+Conducts, inspects, monitors and undertakes inquiry/fact-finding activities relating to complaints and maritime accidents/incidents. They also participates, upon proper designation, in various task forces constituted by the different government agencies involved in law enforcement, marine/inquiry/investigation and risk reduction to further enhance the safety and security of the passengers of domestic water transport services and the general public.
 
 @endsection
 

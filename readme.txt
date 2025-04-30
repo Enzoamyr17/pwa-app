@@ -23,4 +23,9 @@ to open dev server:
 	
 	COMPONENT SETUP:
 		./app/View/Components
+	
 
+
+ADMIN ACCOUNT
+	email: 		admin@gmail.com
+	password: 	admin@1234

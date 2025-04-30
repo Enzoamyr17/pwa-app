@@ -2,6 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\AdminController;
+
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
+
+use App\Models\Process;
+use App\Models\Module;
+
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -11,13 +20,41 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/proc', function () {
-    return view('proc');
+    $processes = Process::All();
+
+    return view('proc', compact('processes'));
+
 })->name('proc');
 
+Route::post('/delete-process', function (Illuminate\Http\Request $request) {
+    $process = Process::find($request->id);
+    if ($process) {
+        $process->delete();
+        return back()->with('success', 'Process deleted successfully.');
+        
+    }
+    return back()->with('error', 'Process not found.');
+
+});
+
+
 Route::get('/iso', function () {
-    return view('iso');
+    $modules = Module::All();
+
+    return view('iso', compact('modules'));
 })->name('iso');
 
+
+Route::post('/delete-module', function (Request $request) {
+    $module = Module::find($request->id);
+
+    if ($module) {
+        $module->delete();
+        return back()->with('success', 'Module deleted successfully.');
+    }
+
+    return back()->with('error', 'Module not found.');
+});
 
 Route::prefix('ves')->name('ves.')->group(function () {
     Route::get('/', function () {
@@ -59,9 +96,12 @@ Route::prefix('req')->name('req.')->group(function () {
 
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//ADMIN ROUTES
+
+Route::get('/dashboard',[AdminController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::post('/add-module', [AdminController::class, 'addModule']);
+Route::post('/add-process', [AdminController::class, 'addProcess']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

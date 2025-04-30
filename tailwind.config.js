@@ -13,7 +13,7 @@ export default {
                 green: 'rgb(0, 82, 27)',
                 greenCard: 'rgb(15, 74, 37)',
                 backbutt: 'rgb(0, 160, 59)',
-                notwhite: 'rgb(237, 237, 237)',
+                notwhite: 'rgb(237, 237, 237)'
             },
             boxShadow: {
                 'nav': '0 -2px 10px rgba(0, 0, 0, 0.15)',

@@ -8,20 +8,12 @@
 
     <x-search-bar />
 
+    @foreach($processes as $item)
     <x-landing-card 
-        href="#" 
-        title="Awareness of Locations in which an Emergency may occur"
+        href="{{ $item->link }}"
+        title="{{ $item->title }}"
     />
-
-    <x-landing-card 
-        href="#" 
-        title="Response Procedures in an Emergency"
-    />
-
-    <x-landing-card 
-        href="#" 
-        title="Maximize Effective Use of Personnel during an Emergency"
-    />
+    @endforeach
 
 </div>
 
