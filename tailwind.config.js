@@ -14,7 +14,8 @@ export default {
                 greenCard: 'rgb(15, 74, 37)',
                 backbutt: 'rgb(0, 160, 59)',
                 red: 'rgb(224, 52, 46)',
-                notwhite: 'rgb(237, 237, 237)'
+                notwhite: 'rgb(237, 237, 237)',
+                blue: 'rgb(53, 76, 80)'
             },
             boxShadow: {
                 'nav': '0 -2px 10px rgba(0, 0, 0, 0.15)',

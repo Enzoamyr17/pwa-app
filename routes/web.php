@@ -9,14 +9,17 @@ use Illuminate\Http\Request;
 
 use App\Models\Process;
 use App\Models\Module;
-
-
+use App\Models\Trivia;
 use Illuminate\Support\Facades\Route;
 
 
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $trivia = Trivia::inRandomOrder()->first();
+   
+
+    return view('welcome', compact('trivia'));
 })->name('home');
 
 Route::get('/proc', function () {
@@ -26,7 +29,7 @@ Route::get('/proc', function () {
 
 })->name('proc');
 
-Route::post('/delete-process', function (Illuminate\Http\Request $request) {
+Route::post('/delete-process', function (Request $request) {
     $process = Process::find($request->id);
     if ($process) {
         $process->delete();

@@ -12,16 +12,20 @@
     <x-search-bar />
 
 
-    <div class="flex mx-auto block w-11/12 aspect-video min-h-44 bg-greenfilter rounded-3xl shadow-lg overflow-hidden">
-        <div class="h-full w-full flex overflow-hidden bg-center bg-cover bg-no-repeat bg-[length:120%]"
-        style="background-image: url('assets/images/3.jpg');">
-            <div class="w-full h-full bg-greenfilter flex flex-col bg-opacity-50 p-2 gap-2">
-                <h3 class="mx-auto text-[10vw] text-white font-semibold z-50 drop-shadow-greenOutline">DO YOU KNOW?</h3>
-                <p class="text-white drop-shadow-greenOutline mx-auto text-[5vw] text-justify text-balance px-6 leading-none">Port refers to the left side of the
-                    ship, when facing forward. While,
-                    Starboard refers to the right side
-                    of the ship, when facing forward.
-                </p>
+    <div class="flex mx-auto block w-11/12 h-auto bg-notwhite rounded-3xl shadow-xl overflow-hidden">
+        <div class="h-full w-full flex overflow-hidden">
+            <div class="w-full h-full flex flex-col bg-opacity-50 p-4 gap-2">
+                <h1 class="text-center py-4">Trivia Question</h1>
+                <h1 class="text-zinc-800 mx-auto text-3xl pl-6 py-4 leading-none">
+                    {{ $trivia->question }}
+                </h1>
+                <div class="flex flex-col gap-y-4 text-white text-xl">
+                    <input id="answer" type="hidden" value="{{$trivia->correct_answer}}">
+                    <button onclick="answerQ(this.id)" id="A" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">A. {{ $trivia->choice_a }}</button>
+                    <button onclick="answerQ(this.id)" id="B" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">B. {{ $trivia->choice_b }}</button>
+                    <button onclick="answerQ(this.id)" id="C" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">C. {{ $trivia->choice_c }}</button>
+                    <button onclick="answerQ(this.id)" id="D" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">D. {{ $trivia->choice_d }}</button>
+                </div>
             </div>
         </div>
     </div>
@@ -57,6 +61,29 @@
     
 </div>
 
+
+<script>
+
+    function answerQ(answer){
+        // values
+        let corAnswer = document.getElementById('answer').value;
+        // divs
+        let corDiv = document.getElementById(corAnswer);
+        let ansDiv = document.getElementById(answer);
+
+        if(answer == corAnswer){
+            ansDiv.classList.remove('bg-blue');
+            ansDiv.classList.add('bg-backbutt');
+        }else{
+            ansDiv.classList.remove('bg-blue');
+            ansDiv.classList.add('bg-red');
+            corDiv.classList.remove('bg-blue');
+            corDiv.classList.add('bg-backbutt');
+        }
+        
+    }
+
+</script>
 
 
 @include('partials.navbar')
