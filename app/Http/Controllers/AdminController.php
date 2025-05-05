@@ -58,4 +58,55 @@ class AdminController extends Controller
     
         return response()->json(['success' => true]);
     }
+
+    public function updateProcess(Request $request)
+    {
+
+        $request->validate([
+            'id' => 'required|integer',
+            'link' => 'required|string'
+        ]);
+    
+        $item = Process::find($request->id);
+        $item->link = $request->link;
+        $item->save();
+    
+        return response()->json(['success' => true]);
+    }
+
+    public function updateModule(Request $request)
+    {
+
+        $request->validate([
+            'id' => 'required|integer',
+            'link' => 'required|string'
+        ]);
+    
+        $item = Module::find($request->id);
+        $item->link = $request->link;
+        $item->save();
+    
+        return response()->json(['success' => true]);
+    }
+
+    public function deleteProcess(Request $request){
+        $process = Process::find($request->id);
+        if ($process) {
+            $process->delete();
+            return back()->with('success', 'Process deleted successfully.');
+            
+        }
+        return back()->with('error', 'Process not found.');
+    }
+
+    public function deleteModule(Request $request){
+        $module = Module::find($request->id);
+
+        if ($module) {
+            $module->delete();
+            return back()->with('success', 'Module deleted successfully.');
+        }
+    
+        return back()->with('error', 'Module not found.');
+    }
 }

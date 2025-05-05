@@ -29,17 +29,6 @@ Route::get('/proc', function () {
 
 })->name('proc');
 
-Route::post('/delete-process', function (Request $request) {
-    $process = Process::find($request->id);
-    if ($process) {
-        $process->delete();
-        return back()->with('success', 'Process deleted successfully.');
-        
-    }
-    return back()->with('error', 'Process not found.');
-
-});
-
 
 Route::get('/iso', function () {
     $modules = Module::All();
@@ -48,16 +37,6 @@ Route::get('/iso', function () {
 })->name('iso');
 
 
-Route::post('/delete-module', function (Request $request) {
-    $module = Module::find($request->id);
-
-    if ($module) {
-        $module->delete();
-        return back()->with('success', 'Module deleted successfully.');
-    }
-
-    return back()->with('error', 'Module not found.');
-});
 
 Route::prefix('ves')->name('ves.')->group(function () {
     Route::get('/', function () {
@@ -105,7 +84,14 @@ Route::get('/dashboard',[AdminController::class, 'admin'])->middleware(['auth', 
 
 Route::post('/add-module', [AdminController::class, 'addModule']);
 Route::post('/add-process', [AdminController::class, 'addProcess']);
+
+
+Route::post('/delete-process',  [AdminController::class, 'deleteProcess']);
+Route::post('/delete-module', [AdminController::class, 'deleteModule']); 
+
 Route::post('/update-request', [AdminController::class, 'updateRequest']);
+Route::post('/update-process', [AdminController::class, 'updateProcess']);
+Route::post('/update-module', [AdminController::class, 'updateModule']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

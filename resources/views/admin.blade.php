@@ -122,25 +122,39 @@
                     </div>
 
                     @foreach($processes as $item)
-                    <div class="flex flex-nowrap h-20">
-                        <div class="m-auto flex w-1/2 h-full">
-                            <h1 class="my-auto pl-4">{{ $item->title }}</h1>
+                        <div id="proce{{ $item->id }}DD" class="flex flex-col h-14 shadow overflow-hidden">
+                            <div class="flex flex-nowrap p-4 w-full h-14">
+                                <h1 class="w-full">{{ $item->title }}</h1>
+                                <button onclick="drop('proce{{ $item->id }}DD','proce{{ $item->id }}SVG','proce{{ $item->id }}SVG2')" class="">
+                                    <svg id="proce{{ $item->id }}SVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                                    <svg id="proce{{ $item->id }}SVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
+                                </button>
+                            </div>
+                            <div class="p-6">
+                                <input onclick="showUpdate(this.id)" id="proclink{{ $item->id }}" class="w-full" type="text" value="{{ $item->link }}">                                
+                            </div>
+                            <div id="proclink{{ $item->id }}Button" class="flex p-6 hidden">
+                                <button onclick="updateProcess('proclink{{ $item->id }}', {{ $item->id }})" class="m-auto w-3/4 bg-blue text-white rounded-lg py-1">Update Link</button>                                
+                            </div>
+                            <div class="flex p-6">
+                                <form class="w-full m-auto flex" method="POST" action="/delete-process" class="m-auto" onsubmit="return confirm('Are you sure?');">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <button type="submit" class="m-auto w-3/4 bg-red text-white rounded-lg py-1">Delete</button>
+                                </form>
+                            </div>
+                                
+
                         </div>
-                        <div class="m-auto flex w-1/2 h-full">
-                            <form method="POST" action="/delete-process" class="m-auto" onsubmit="return confirm('Are you sure?');">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $item->id }}">
-                                <button type="submit" class="bg-red text-white rounded-lg px-4">Delete</button>
-                            </form>
-                        </div>
-                    </div>
                     @endforeach
+
 
                 </div>
             </div>
         </div>
     </div>
 
+    
     <!-- Modules -->
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -155,19 +169,32 @@
                     </div>
 
                     @foreach($modules as $item)
-                    <div class="flex flex-nowrap h-20">
-                        <div class="m-auto flex w-1/2 h-full">
-                            <h1 class="my-auto pl-4">{{ $item->title }}</h1>
+                        <div id="modu{{ $item->id }}DD" class="flex flex-col h-14 shadow overflow-hidden">
+                            <div class="flex flex-nowrap p-4 w-full h-14">
+                                <h1 class="w-full">{{ $item->title }}</h1>
+                                <button onclick="drop('modu{{ $item->id }}DD','modu{{ $item->id }}SVG','modu{{ $item->id }}SVG2')" class="">
+                                    <svg id="modu{{ $item->id }}SVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                                    <svg id="modu{{ $item->id }}SVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
+                                </button>
+                            </div>
+                            <div class="p-6">
+                                <input onclick="showUpdate(this.id)" id="modlink{{ $item->id }}" class="w-full" type="text" value="{{ $item->link }}">                                
+                            </div>
+                            <div id="modlink{{ $item->id }}Button" class="flex p-6 hidden">
+                                <button onclick="updateModule('modlink{{ $item->id }}', {{ $item->id }})" class="m-auto w-3/4 bg-blue text-white rounded-lg py-1">Update Link</button>                                
+                            </div>
+                            <div class="flex p-6">
+                                <form class="w-full m-auto flex" method="POST" action="/delete-module" class="m-auto" onsubmit="return confirm('Are you sure?');">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <button type="submit" class="m-auto w-3/4 bg-red text-white rounded-lg py-1">Delete</button>
+                                </form>
+                            </div>
+                                
+
                         </div>
-                        <div class="m-auto flex w-1/2 h-full">
-                            <form method="POST" action="/delete-module" class="m-auto" onsubmit="return confirm('Are you sure?');">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $item->id }}">
-                                <button type="submit" class="bg-red text-white rounded-lg px-4">Delete</button>
-                            </form>
-                        </div>
-                    </div>
                     @endforeach
+
 
                 </div>
             </div>
@@ -205,6 +232,17 @@
     
 
 <script>
+
+    // dropdown for viewing/editing modules and processes
+    function showUpdate(id){
+        let div = document.getElementById(id);
+
+        div = document.getElementById(id + 'Button');
+
+        div.classList.toggle('hidden');
+    }
+
+    
 
     // dropdown for adding modules
     function toggle(el) {
@@ -269,7 +307,83 @@
             console.error('❌ Error updating status:', error);
             alert('An error occurred while updating the status.');
         });
+    }    
+
+    function updateProcess(link, itemId) {
+        console.log('update link button pressed.');
+        const newLink = document.getElementById(link).value;
+
+
+        const csrf = document.querySelector('meta[name="csrf-token"]');
+        if (!csrf) {
+            alert('CSRF token missing.');
+            return;
+        }
+
+        fetch('/update-process', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrf.getAttribute('content')
+            },
+            body: JSON.stringify({
+                id: itemId,
+                link: newLink
+            })
+        })
+        .then(async response => {
+            const data = await response.json();
+            if (data.success) {
+                console.log('✅ link updated!');
+                alert('✅ link updated!');
+            } else {
+                alert('Failed to update link: ' + (data.message || 'Unknown error'));
+            }
+        })
+        .catch(error => {
+            console.error('❌ Error updating link:', error);
+            alert('An error occurred while updating the link.');
+        });
     }
+
+    function updateModule(link, itemId) {
+        console.log('update link button pressed.');
+        const newLink = document.getElementById(link).value;
+
+
+        const csrf = document.querySelector('meta[name="csrf-token"]');
+        if (!csrf) {
+            alert('CSRF token missing.');
+            return;
+        }
+
+        fetch('/update-module', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrf.getAttribute('content')
+            },
+            body: JSON.stringify({
+                id: itemId,
+                link: newLink
+            })
+        })
+        .then(async response => {
+            const data = await response.json();
+            if (data.success) {
+                console.log('✅ link updated!');
+                alert('✅ link updated!');
+            } else {
+                alert('Failed to update link: ' + (data.message || 'Unknown error'));
+            }
+        })
+        .catch(error => {
+            console.error('❌ Error updating link:', error);
+            alert('An error occurred while updating the link.');
+        });
+    }
+
+
 
 
 </script>
