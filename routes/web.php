@@ -88,7 +88,7 @@ Route::prefix('req')->name('req.')->group(function () {
         return view('request.form');
     })->name('form');
 
-    Route::get('/list',[RequestController::class, 'list_all_requests'])->name('list');
+    Route::get('/list',[RequestController::class, 'list_my_requests'])->name('list');
 
     Route::get('/view/{id}',[RequestController::class, 'view_request'])->name('view');
 
@@ -98,10 +98,11 @@ Route::prefix('req')->name('req.')->group(function () {
 
 //ADMIN ROUTES
 
-Route::get('/dashboard',[AdminController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[AdminController::class, 'admin'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/add-module', [AdminController::class, 'addModule']);
 Route::post('/add-process', [AdminController::class, 'addProcess']);
+Route::post('/update-request', [AdminController::class, 'updateRequest']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

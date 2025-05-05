@@ -40,4 +40,26 @@
       console.log('Service Worker registration failed:', error);
     });
   }
+
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('client_token')) {
+      const token = generateUUID();
+      localStorage.setItem('client_token', token);
+    }
+
+    const token = localStorage.getItem('client_token');
+    console.log('onload token:', token);
+
+    function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+  });
 </script>

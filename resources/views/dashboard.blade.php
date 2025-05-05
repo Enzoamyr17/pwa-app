@@ -8,6 +8,39 @@
         </div>
     </div>
 
+    
+    <!-- Requests -->
+    <div class="py-6 mt-6">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 bg-gray-200 h-14">
+                    <h1 class="text-2xl">Requests</h1>
+
+                    @foreach($requests as $item)
+                    <div class="flex flex-nowrap h-20">
+                        <div class="m-auto flex w-1/2 h-full">
+                            <h1 class="my-auto pl-4">{{ $item->partname }}</h1>
+                        </div>
+                        <div class="m-auto flex w-1/2 h-full">
+                            <select class="m-auto bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-900 uppercase">
+                                
+                                <option value="{{ $item->status }}">{{ $item->status }}</option>
+                                @foreach(['REQUESTED', 'APPROVED', 'DISAPPROVED', 'JUSTIFICATION'] as $status)
+                                    @if($status !== $item->status)
+                                        <option value="{{ $status }}">{{ $status }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- add buttons -->
     <div class="shadow">
         <div class="flex max-w-7xl text-lg mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <button onclick="toggle('mod')" class="m-auto bg-zinc-600 rounded-xl text-white px-4 py-1">Add Module</button>
@@ -15,6 +48,7 @@
         </div>
     </div>
 
+    <!-- forms -->
     <div class="h-auto">
         <div id="mod" class="hidden flex flex-col overflow-hidden gap-y-2">
             <form method="POST" action="/add-module" class="w-3/4 m-auto flex flex-col">
@@ -35,6 +69,7 @@
         </div>
     </div>
 
+    <!-- modules and processes -->
     <div class="py-6 mt-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg">

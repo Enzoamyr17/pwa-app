@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Process;
 use App\Models\Module;
+use App\Models\Request as Req;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function dashboard(){
-
+    public function admin(){
+        
         $processes = Process::All();
         $modules = Module::All();
+        $requests = Req::All();
 
-        return view('dashboard', compact('processes', 'modules'));
+        return view('admin', compact('processes', 'modules', 'requests'));
     }
 
     public function addModule(Request $request)
@@ -40,5 +42,20 @@ class AdminController extends Controller
         Process::create($validated);
 
         return back()->with('success', 'Process added successfully!');
+    }
+
+    public function updateRequest(Request $request)
+    {
+
+        $request->validate([
+            'id' => 'required|integer',
+            'status' => 'required|string'
+        ]);
+    
+        $item = Req::find($request->id);
+        $item->status = $request->status;
+        $item->save();
+    
+        return response()->json(['success' => true]);
     }
 }

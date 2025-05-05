@@ -9,12 +9,22 @@ use Illuminate\Support\Carbon;
 
 class RequestController extends Controller
 {
-    public function list_all_requests(){
-        $requests = Req::orderBy('timeper', 'asc')->get();
 
+    public function list_my_requests(Request $request)
+    {
+        $token = $request->query('token');
+    
+        if (!$token) {
+            return redirect('/')->with('error', 'No token found. Please try again.');
+        }
+    
+        $requests = Req::where('token', $token)
+                        ->orderBy('requested_at', 'desc')
+                        ->get();
+    
         return view('request.list', compact('requests'));
-
     }
+    
 
     public function view_request($id){
         $request = Req::findorfail($id);
@@ -34,13 +44,16 @@ class RequestController extends Controller
             'artnum' => 'nullable|string|max:255',
             'specs' => 'nullable|string|max:1000',
             'timeper' => 'nullable|in:0,1,2,3,4,5,6,7',
+            'token' => 'required|string|max:255'
         ]);
 
         $data['requested_at'] = now()->toDateString();
 
         $requestEntry = Req::create($data);
 
-        return redirect()->route('req.list')->with('success', 'Request submitted!');
+        return redirect()->route('req.list', ['token' => $request->token])
+        ->with('success', 'Request submitted!');
+
 
     }
 }

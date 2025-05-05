@@ -8,22 +8,35 @@
 
     <x-search-bar />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="{{ route('req.form') }}" 
         title="Request Parts"
     />
 
-    <x-landing-card 
-        href="{{ route('req.list') }}" 
+    <x-redirectcard 
+        href="#" 
         title="List of Requests"
+        id="my-request-link"
     />
 
-    <x-landing-card 
+
+    <x-redirectcard 
         href="#" 
         title="Drafts"
     />
     
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('client_token');
+        const link = document.getElementById('my-request-link');
+        if (token && link) {
+            link.setAttribute('href', `/req/list?token=${token}`);
+        }
+    });
+</script>
+
 
 @include('partials.navbar')
 @include('partials.foot')

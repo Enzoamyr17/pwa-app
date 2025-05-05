@@ -24,6 +24,7 @@ class Request extends Model
         'timeper',
         'requested_at',
         'updated_by',
+        'token',
     ];
 
     protected $dates = ['requested_at'];

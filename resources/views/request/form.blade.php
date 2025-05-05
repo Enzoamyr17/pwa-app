@@ -6,6 +6,7 @@
 
 <form method="POST" action="{{ route('req.store') }}">
     @CSRF
+    <input type="hidden" name="token" id="client_token_input">
     <div class="flex flex-col gap-y-4 px-6 text-lg">
         <label>
             Part Name:
@@ -67,6 +68,14 @@
 
 
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('client_token');
+        document.getElementById('client_token_input').value = token;
+    });
+</script>
+
 
 @include('partials.navbar')
 @include('partials.foot')
