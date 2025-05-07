@@ -4,7 +4,7 @@
 
 <h1 class="mx-auto font-semibold text-4xl">Part Request Form</h1>
 
-<form method="POST" action="{{ route('req.store') }}">
+<form id="request-form" method="POST" action="{{ route('req.store') }}">
     @CSRF
     <input type="hidden" name="token" id="client_token_input">
     <div class="flex flex-col gap-y-4 px-6 text-lg">
@@ -60,7 +60,7 @@
         <button type="submit" class="m-auto bg-green rounded-xl">
             <h1 class="text-3xl font-bold text-white px-10 py-2">Send Request</h1>
         </button>
-        <button type="button" class="m-auto bg-zinc-600 rounded-xl">
+        <button type="button" onclick="saveDraft()" class="m-auto bg-zinc-600 rounded-xl">
             <h1 class="text-3xl font-bold text-white px-10 py-2">Save to drafts</h1>
         </button>
     </div>
@@ -74,6 +74,12 @@
         const token = localStorage.getItem('client_token');
         document.getElementById('client_token_input').value = token;
     });
+
+    function saveDraft() {
+        const form = document.getElementById('request-form');
+        form.action = "{{ route('req.store_draft') }}";
+        form.submit();
+    }
 </script>
 
 

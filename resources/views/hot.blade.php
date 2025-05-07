@@ -6,8 +6,6 @@
 
     <h1 class="text-4xl font-bold ml-4 py-2 pb-3 text-green">Hotlines</h1>
 
-    <x-search-bar />
-
     <x-redirectcard 
         href="{{ route('hotl.EnforcementService') }}"
         title="Enforcement Service"

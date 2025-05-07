@@ -6,8 +6,6 @@
 
     <h1 class="text-4xl font-bold ml-4 py-2 pb-3 text-green">ABOUT THE VESSEL</h1>
 
-    <x-search-bar />
-
     <x-redirectcard 
         href="{{ route('ves.parts') }}" 
         title="Learn About Vessel Parts"
@@ -15,23 +13,11 @@
     />
 
     <x-redirectcard 
-        href="#" 
+        href="{{ route('ves.explore') }}" 
         title="Explore the Vessel"
         imageUrl="{{ asset('assets/images/14.png') }}"
 
     />
-
-    <x-redirectcard 
-        href="#" 
-        title="Emergency Exit Guides"
-        imageUrl="{{ asset('assets/images/15.png') }}"
-
-    />
-    
-
-
-
-
 
 </div>
 

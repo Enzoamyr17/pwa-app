@@ -39,21 +39,15 @@
 
     elem.addEventListener('touchstart', function(event) { 
  
-        console.log("down");
-
         if (isDown==false){
             isDown=true;
             setTimeout(function() {
                 if (isDown==true){
-                    console.log("Hold");
-                    window.location.href = "/dashboard"; // redirects within the same domain
-
+                    window.location.href = "/dashboard";
                 }else{
-                    console.log("didn't hold");
                     if(window.location.pathname != '/'){
-                        window.location.href = window.location.origin; // redirects within the same domain
+                        window.location.href = window.location.origin;
                     }
-
                 }
             }, (secondsToHold*1000));
         }
@@ -61,10 +55,7 @@
     });
 
     elem.addEventListener('touchend', function(event) {
-
         isDown=false;  
-        console.log("up");
-
     });
 
 </script>

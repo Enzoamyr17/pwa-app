@@ -8,27 +8,27 @@
 
     <x-search-bar />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Anchor"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Bow"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Bow Thrusters"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Deck"
     />
 
-    <x-landing-card 
+    <x-redirectcard 
         href="#" 
         title="Ship's Hull"
     />

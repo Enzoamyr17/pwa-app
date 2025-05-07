@@ -6,13 +6,12 @@
 
     <h1 class="text-4xl font-bold ml-4 py-2 pb-3 text-green">Request for Parts</h1>
 
-    <x-search-bar />
-
     <x-redirectcard 
         href="{{ route('req.form') }}" 
         title="Request Parts"
     />
 
+    <!-- uses dom script to update href -->
     <x-redirectcard 
         href="#" 
         title="List of Requests"
@@ -22,7 +21,8 @@
 
     <x-redirectcard 
         href="#" 
-        title="Drafts"
+        title="Draft"
+        id="my-draft-link"
     />
     
 </div>
@@ -33,6 +33,14 @@
         const link = document.getElementById('my-request-link');
         if (token && link) {
             link.setAttribute('href', `/req/list?token=${token}`);
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('client_token');
+        const link = document.getElementById('my-draft-link');
+        if (token && link) {
+            link.setAttribute('href', `/req/draft?token=${token}`);
         }
     });
 </script>

@@ -8,7 +8,7 @@
 
     <x-search-bar />
 
-    @foreach($processes as $item)
+    @foreach($results as $item)
     <x-landing-card 
         href="{{ $item->link }}"
         title="{{ $item->title }}"

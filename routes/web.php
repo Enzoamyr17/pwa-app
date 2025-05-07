@@ -22,18 +22,28 @@ Route::get('/', function () {
     return view('welcome', compact('trivia'));
 })->name('home');
 
-Route::get('/proc', function () {
-    $processes = Process::All();
+Route::get('/proc', function (Request $request) {
+    $search = $request->input('search');
 
-    return view('proc', compact('processes'));
+    $results = Process::query()
+        ->when($search, function ($query, $search) {
+            return $query->where('title', 'like', "%{$search}%");
+        })->get();
 
+    return view('proc', compact('results'));
 })->name('proc');
 
 
-Route::get('/iso', function () {
-    $modules = Module::All();
+Route::get('/iso', function (Request $request) {
 
-    return view('iso', compact('modules'));
+    $search = $request->input('search');
+
+    $results = Module::query()
+        ->when($search, function($query, $search){
+            return $query->where('title', 'like', "%{$search}%");
+        })->get();
+
+    return view('iso', compact('results'));
 })->name('iso');
 
 
@@ -46,6 +56,18 @@ Route::prefix('ves')->name('ves.')->group(function () {
     Route::get('/parts', function () {
         return view('vessel.parts');
     })->name('parts');
+
+    Route::get('/explore', function () {
+        return view('vessel.explore');
+    })->name('explore');
+
+    Route::get('/providence', function () {
+        return view('vessel.providence');
+    })->name('providence');
+
+    Route::get('/endurance', function () {
+        return view('vessel.endurance');
+    })->name('endurance');
 
 });
 
@@ -74,7 +96,11 @@ Route::prefix('req')->name('req.')->group(function () {
 
     Route::get('/view/{id}',[RequestController::class, 'view_request'])->name('view');
 
+    Route::get('/draft',[RequestController::class, 'view_draft'])->name('draft');
+
     Route::post('/store',[RequestController::class, 'store_request'])->name('store');
+
+    Route::post('/store-draft',[RequestController::class, 'store_draft'])->name('store_draft');
 
 });
 

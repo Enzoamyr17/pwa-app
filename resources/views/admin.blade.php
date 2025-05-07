@@ -15,7 +15,7 @@
                 <!-- return to h-20 !!!!!!!!!!!!!!!!!!! -->
                 <div id="reqDD" class="p-6 text-gray-900 bg-gray-200 h-20 overflow-hidden">
                     <div class="flex flex-nowrap">
-                        <h1 class="m-auto ml-0 text-2xl pb-2">Requests</h1>
+                        <h1 class="m-auto ml-0 text-2xl pb-2 mb-6">Requests</h1>
                         <button onclick="drop('reqDD','reqSVG','reqSVG2')" class="m-auto mr-0 text-2xl pb-2">
                             <svg id="reqSVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                             <svg id="reqSVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
@@ -114,7 +114,7 @@
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
                 <div id="procDD" class="p-6 text-gray-900 bg-gray-200 h-20 overflow-hidden">
                     <div class="flex flex-nowrap">
-                        <h1 class="m-auto ml-0 text-2xl pb-2">Processes</h1>
+                        <h1 class="m-auto ml-0 text-2xl pb-2 mb-6">Processes</h1>
                         <button onclick="drop('procDD','procSVG','procSVG2')" class="m-auto mr-0 text-2xl pb-2">
                             <svg id="procSVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                             <svg id="procSVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
@@ -161,7 +161,7 @@
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
                 <div id="modDD" class="p-6 text-gray-900 bg-gray-200 h-20 overflow-hidden">
                     <div class="flex flex-nowrap">
-                        <h1 class="m-auto ml-0 text-2xl pb-2">Modules</h1>
+                        <h1 class="m-auto ml-0 text-2xl pb-2 mb-6">Modules</h1>
                         <button onclick="drop('modDD','modSVG','modSVG2')" class="m-auto mr-0 text-2xl pb-2">
                             <svg id="modSVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                             <svg id="modSVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
@@ -275,8 +275,6 @@
     function updateRequestStatus(selectEl, itemId) {
         const newStatus = selectEl.value;
 
-        console.log('status changed to:',newStatus);
-
         const csrf = document.querySelector('meta[name="csrf-token"]');
         if (!csrf) {
             alert('CSRF token missing.');
@@ -297,7 +295,6 @@
         .then(async response => {
             const data = await response.json();
             if (data.success) {
-                console.log('✅ Status updated!');
                 alert('✅ Status updated!');
             } else {
                 alert('Failed to update status: ' + (data.message || 'Unknown error'));
@@ -310,7 +307,6 @@
     }    
 
     function updateProcess(link, itemId) {
-        console.log('update link button pressed.');
         const newLink = document.getElementById(link).value;
 
 
@@ -334,7 +330,6 @@
         .then(async response => {
             const data = await response.json();
             if (data.success) {
-                console.log('✅ link updated!');
                 alert('✅ link updated!');
             } else {
                 alert('Failed to update link: ' + (data.message || 'Unknown error'));
@@ -347,7 +342,6 @@
     }
 
     function updateModule(link, itemId) {
-        console.log('update link button pressed.');
         const newLink = document.getElementById(link).value;
 
 
@@ -371,7 +365,6 @@
         .then(async response => {
             const data = await response.json();
             if (data.success) {
-                console.log('✅ link updated!');
                 alert('✅ link updated!');
             } else {
                 alert('Failed to update link: ' + (data.message || 'Unknown error'));

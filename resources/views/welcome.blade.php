@@ -7,24 +7,29 @@
 
 </div>
 
-<div class="relative m-auto -mt-28 bg-white h-auto min-h-[60vh] flex flex-col gap-y-4 w-full rounded-t-[24px] z-40 py-8 pb-32">
-
-    <x-search-bar />
-
+<div class="relative m-auto -mt-28 bg-white h-auto min-h-[60vh] flex flex-col gap-y-4 w-full rounded-t-[24px] z-40 py-6 pb-32">
 
     <div class="flex mx-auto block w-11/12 h-auto bg-notwhite rounded-3xl shadow-xl overflow-hidden">
         <div class="h-full w-full flex overflow-hidden">
             <div class="w-full h-full flex flex-col bg-opacity-50 p-4 gap-2">
                 <h1 class="text-center py-4">Trivia Question</h1>
                 <h1 class="text-zinc-800 mx-auto text-3xl pl-6 py-4 leading-none">
-                    {{ $trivia->question }}
+                    {{ Str::ucfirst($trivia->question) }}
                 </h1>
                 <div class="flex flex-col gap-y-4 text-white text-xl">
                     <input id="answer" type="hidden" value="{{$trivia->correct_answer}}">
-                    <button onclick="answerQ(this.id)" id="A" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">A. {{ $trivia->choice_a }}</button>
-                    <button onclick="answerQ(this.id)" id="B" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">B. {{ $trivia->choice_b }}</button>
-                    <button onclick="answerQ(this.id)" id="C" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">C. {{ $trivia->choice_c }}</button>
-                    <button onclick="answerQ(this.id)" id="D" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">D. {{ $trivia->choice_d }}</button>
+                    <button onclick="answerQ(this.id)" id="A" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">
+                        A. {{ Str::ucfirst($trivia->choice_a) }}
+                    </button>
+                    <button onclick="answerQ(this.id)" id="B" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">
+                        B. {{ Str::ucfirst($trivia->choice_b) }}
+                    </button>
+                    <button onclick="answerQ(this.id)" id="C" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">
+                        C. {{ Str::ucfirst($trivia->choice_c) }}
+                    </button>
+                    <button onclick="answerQ(this.id)" id="D" class="w-full m-auto p-6 bg-blue min-h-12 text-left rounded-lg ">
+                        D. {{ Str::ucfirst($trivia->choice_d) }}
+                    </button>
                 </div>
             </div>
         </div>
