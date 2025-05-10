@@ -14,6 +14,7 @@ class Part extends Model
     protected $fillable = [
         'name',
         'desc',
-        'image_url'
+        'image_url',
+        'category'
     ];
 }

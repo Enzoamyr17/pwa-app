@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('desc');
             $table->string('image_url')->nullable();
+            $table->string('category');
             $table->timestamps();
         });
     }
