@@ -37,29 +37,29 @@
 
     <h1 class="text-5xl font-bold ml-4 py-2 pb-3 text-green">FEATURES</h1>
 
-    <x-landing-card 
+    <x-redirectcard 
         href="{{ route('proc') }}" 
         title="Learn about the processes"
         imageUrl="{{ asset('assets/images/4.jpg') }}"
     />
     
-    <x-landing-card 
+    <x-redirectcard 
         href="{{ route('iso') }}" 
         title="Learn about the ISO"
         imageUrl="{{ asset('assets/images/6.jpg') }}"
     />
     
-    <x-landing-card 
+    <x-redirectcard 
         href="{{ route('ves.index') }}" 
         title="Learn more about the vessel"
     />
     
-    <x-landing-card 
+    <x-redirectcard 
         href="{{ route('req.index') }}" 
         title="Submit replacement part requests"
     />
     
-    <x-landing-card 
+    <x-redirectcard 
         href="{{ route('hotl.index') }}" 
         title="Learn more about the vessel"
     />

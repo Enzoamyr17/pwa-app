@@ -12,6 +12,7 @@
     <x-landing-card 
         href="{{ $item->link }}"
         title="{{ $item->title }}"
+        subtitle="{{ $item->desc }}"
     />
     @endforeach
 
