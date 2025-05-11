@@ -9,9 +9,16 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- tidio positioning -->
+    <style>
+      #tidio-chat-iframe { bottom: 50px !important; }
+      @media only screen and (max-width: 980px) {
+      #tidio-chat-iframe { bottom: 66px !important;}
+      }
+    </style>
 
 </head>
-<body class="flex flex-col">
+<body class="flex flex-col pb-18">
     <button
         id="backButton"
         onclick="history.back()"
@@ -29,7 +36,6 @@
     });
 
 </script>
-
 <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
@@ -43,7 +49,6 @@
 
 
 </script>
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.getItem('client_token')) {
@@ -61,3 +66,7 @@
     }
   });
 </script>
+
+@if(request()->is('dashboard') == false)
+  <!-- <script src="//code.tidio.co/UNIQUEKEY.js" async></script> -->
+@endif

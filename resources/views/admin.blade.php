@@ -12,11 +12,10 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
-                <!-- return to h-20 !!!!!!!!!!!!!!!!!!! -->
                 <div id="reqDD" class="p-6 text-gray-900 bg-gray-200 h-20 overflow-hidden">
-                    <div class="flex flex-nowrap">
-                        <h1 class="m-auto ml-0 text-2xl pb-2 mb-6">Requests</h1>
-                        <button onclick="drop('reqDD','reqSVG','reqSVG2')" class="m-auto mr-0 text-2xl pb-2">
+                    <div class="flex flex-nowrap mb-6">
+                        <h1 class="m-auto ml-0 text-2xl pb-2">Requests</h1>
+                        <button onclick="drop('reqDD','reqSVG','reqSVG2')" class="m-auto mr-0">
                             <svg id="reqSVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                             <svg id="reqSVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
                         </button>
@@ -113,9 +112,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
                 <div id="procDD" class="p-6 text-gray-900 bg-gray-200 h-20 overflow-hidden">
-                    <div class="flex flex-nowrap">
-                        <h1 class="m-auto ml-0 text-2xl pb-2 mb-6">Processes</h1>
-                        <button onclick="drop('procDD','procSVG','procSVG2')" class="m-auto mr-0 text-2xl pb-2">
+                    <div class="flex flex-nowrap mb-6">
+                        <h1 class="m-auto ml-0 text-2xl pb-2">Processes</h1>
+                        <button onclick="drop('procDD','procSVG','procSVG2')" class="m-auto mr-0">
                             <svg id="procSVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                             <svg id="procSVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
                         </button>
@@ -153,16 +152,15 @@
             </div>
         </div>
     </div>
-
     
     <!-- Modules -->
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
                 <div id="modDD" class="p-6 text-gray-900 bg-gray-200 h-20 overflow-hidden">
-                    <div class="flex flex-nowrap">
-                        <h1 class="m-auto ml-0 text-2xl pb-2 mb-6">Modules</h1>
-                        <button onclick="drop('modDD','modSVG','modSVG2')" class="m-auto mr-0 text-2xl pb-2">
+                    <div class="flex flex-nowrap mb-6">
+                        <h1 class="m-auto ml-0 text-2xl pb-2">Modules</h1>
+                        <button onclick="drop('modDD','modSVG','modSVG2')" class="m-auto mr-0">
                             <svg id="modSVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
                             <svg id="modSVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
                         </button>
@@ -201,22 +199,74 @@
         </div>
     </div>
 
+    <!-- Parts -->
+    <div class="py-6">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="overflow-hidden shadow-sm sm:rounded-lg">
+                <div id="partsDD" class="p-6 text-gray-900 bg-gray-200 h-20 overflow-hidden">
+                    <div class="flex flex-nowrap mb-6">
+                        <h1 class="m-auto ml-0 text-2xl pb-2">Parts</h1>
+                        <button onclick="drop('partsDD','partsSVG','partsSVG2')" class="m-auto mr-0">
+                            <svg id="partsSVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                            <svg id="partsSVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
+                        </button>
+                    </div>
+
+                    @foreach($parts as $category => $categoryParts)
+                        <div id="partCat{{ $loop->index }}DD" class="flex flex-col h-14 shadow overflow-hidden">
+                            <div class="flex flex-nowrap p-4 w-full h-14">
+                                <h1 class="w-full text-xl font-semibold">{{ ucwords(strtolower($category)) }}</h1>
+                                <button onclick="drop('partCat{{ $loop->index }}DD','partCat{{ $loop->index }}SVG','partCat{{ $loop->index }}SVG2')" class="">
+                                    <svg id="partCat{{ $loop->index }}SVG" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                                    <svg id="partCat{{ $loop->index }}SVG2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
+                                </button>
+                            </div>
+                            <div class="p-6 bg-notwhite">
+                                @foreach($categoryParts as $part)
+                                    <div class="mb-6 last:mb-0 shadow-md py-6 w-full">
+                                        <div class="flex flex-col gap-y-4">
+                                            <div class="flex flex-col items-center text-center">
+                                                <img src="{{ asset('assets/images/parts/' . ucwords(strtolower($category)) . '/' . $part->name . '.png') }}" 
+                                                     alt="{{ $part->name }}" 
+                                                     class="w-16 h-16 object-contain mb-2">
+                                                <h3 class="text-lg font-semibold">{{ $part->name }}</h3>
+                                                <p class="text-gray-600 text-sm">{{ $part->desc }}</p>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <form method="POST" action="/delete-part" class="w-1/3" onsubmit="return confirm('Are you sure you want to delete this part?');">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $part->id }}">
+                                                    <button type="submit" class="w-full bg-red text-white rounded-lg py-1">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- add buttons -->
     <div class="">
-        <div class="flex max-w-7xl text-lg mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <button onclick="toggle('mod')" class="m-auto bg-zinc-600 rounded-xl text-white px-4 py-1">Add Module</button>
-            <button onclick="toggle('proc')" class="m-auto bg-zinc-600 rounded-xl text-white px-4 py-1">Add Process</button>
+        <div class="flex flex-wrap gap-y-4 gap-x-2 max-w-7xl text-lg mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <button onclick="toggle('mod')" class="w-[48%] m-auto bg-zinc-600 rounded-xl text-white px-4 py-1">Add Module</button>
+            <button onclick="toggle('proc')" class="w-[48%] m-auto bg-zinc-600 rounded-xl text-white px-4 py-1">Add Process</button>
+            <button onclick="toggle('part')" class="w-[48%] m-auto bg-zinc-600 rounded-xl text-white px-4 py-1">Add Part</button>
         </div>
     </div>
 
     <!-- forms -->
-    <div class="h-auto">
+    <div class="h-auto pb-20">
         <div id="mod" class="hidden flex flex-col overflow-hidden gap-y-2">
             <form method="POST" action="/add-module" class="w-3/4 m-auto flex flex-col">
                 @csrf
                 <input class="w-full mb-2" type="text" name="title" placeholder="Module Title" required>
                 <input class="w-full mb-2" type="text" name="link" placeholder="Module Link" required>
-                <button type="submit" class= py-1 px-4 bg-notwhite w-1/3 m-auto rounded-xl">Add Module</button>
+                <button type="submit" class="py-1 px-4 bg-notwhite w-1/3 m-auto rounded-xl">Add Module</button>
             </form>
         </div>
         
@@ -226,6 +276,25 @@
                 <input class="w-full mb-2" type="text" name="title" placeholder="Process Title" required>
                 <input class="w-full mb-2" type="text" name="link" placeholder="Process Link" required>
                 <button type="submit" class="py-1 px-4 bg-notwhite w-1/3 m-auto rounded-xl">Add Process</button>
+            </form>
+        </div>
+
+        <div id="part" class="hidden flex flex-col overflow-hidden gap-y-2">
+            <form method="POST" action="/add-part" class="w-3/4 m-auto flex flex-col" enctype="multipart/form-data">
+                @csrf
+                <input class="w-full mb-2" type="text" name="name" placeholder="Part Name" required>
+                <input class="w-full mb-2" type="text" name="category" placeholder="Part Category" list="categories" required>
+                <datalist id="categories">
+                    @foreach($categories as $category)
+                        <option value="{{ $category }}">
+                    @endforeach
+                </datalist>
+                <textarea class="w-full mb-2" name="desc" placeholder="Part Description" required></textarea>
+                <div class="mb-2">
+                    <label class="block text-sm text-gray-600 mb-1">Part Image (PNG only)</label>
+                    <input class="w-full" type="file" name="image" accept=".png" required>
+                </div>
+                <button type="submit" class="py-1 px-4 bg-notwhite w-1/3 m-auto rounded-xl">Add Part</button>
             </form>
         </div>
     </div>
@@ -247,15 +316,14 @@
     // dropdown for adding modules
     function toggle(el) {
         let target = document.getElementById(el);
-        let sibling = el === 'mod'
-            ? document.getElementById('proc')
-            : document.getElementById('mod');
+        let siblings = ['mod', 'proc', 'part'].filter(id => id !== el);
         
-        if(sibling.classList.contains('hidden')){
-            // Do nothing if sibling already has the 'hidden' class
-        } else {
-            sibling.classList.toggle('hidden');
-        }
+        siblings.forEach(siblingId => {
+            let sibling = document.getElementById(siblingId);
+            if (!sibling.classList.contains('hidden')) {
+                sibling.classList.add('hidden');
+            }
+        });
 
         target.classList.toggle('hidden');
     }

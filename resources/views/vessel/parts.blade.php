@@ -6,31 +6,14 @@
 
     <h1 class="text-4xl font-bold ml-4 py-2 pb-3 text-green">Learn About Parts</h1>
 
-    <x-search-bar />
-
     <x-redirectcard 
-        href="#" 
-        title="Anchor"
+        href="{{ route('ves.engine') }}" 
+        title="Engine"
     />
 
     <x-redirectcard 
-        href="#" 
-        title="Bow"
-    />
-
-    <x-redirectcard 
-        href="#" 
-        title="Bow Thrusters"
-    />
-
-    <x-redirectcard 
-        href="#" 
-        title="Deck"
-    />
-
-    <x-redirectcard 
-        href="#" 
-        title="Ship's Hull"
+        href="{{ route('ves.ship') }}" 
+        title="Ship"
     />
     
 

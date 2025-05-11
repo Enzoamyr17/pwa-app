@@ -9,12 +9,14 @@ class landingCard extends Component
     public $href;
     public $title;
     public $imageUrl;
+    public $displayImg;
 
-    public function __construct($href, $title, $imageUrl = null)
+    public function __construct($title, $href = null, $imageUrl = null, $displayImg = null)
     {
-        $this->href = $href;
         $this->title = $title;
+        $this->href = $href;
         $this->imageUrl = $imageUrl;
+        $this->displayImg = $displayImg;
     }
 
     public function render()

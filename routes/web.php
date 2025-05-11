@@ -10,16 +10,16 @@ use Illuminate\Http\Request;
 use App\Models\Process;
 use App\Models\Module;
 use App\Models\Trivia;
+use App\Models\Part;
 use Illuminate\Support\Facades\Route;
 
 
 
 Route::get('/', function () {
+    $trivias = Trivia::inRandomOrder()->get();
+    $currentTrivia = $trivias->first();
 
-    $trivia = Trivia::inRandomOrder()->first();
-   
-
-    return view('welcome', compact('trivia'));
+    return view('welcome', compact('trivias', 'currentTrivia'));
 })->name('home');
 
 Route::get('/proc', function (Request $request) {
@@ -56,6 +56,16 @@ Route::prefix('ves')->name('ves.')->group(function () {
     Route::get('/parts', function () {
         return view('vessel.parts');
     })->name('parts');
+
+    Route::get('/parts/engine', function () {
+        $results = Part::where('category', 'Engine')->get();
+        return view('vessel.engine', compact('results'));
+    })->name('engine');
+
+    Route::get('/parts/ship', function () {
+        $results = Part::where('category', 'Ship')->get();
+        return view('vessel.ship', compact('results'));
+    })->name('ship');
 
     Route::get('/explore', function () {
         return view('vessel.explore');
@@ -110,10 +120,11 @@ Route::get('/dashboard',[AdminController::class, 'admin'])->middleware(['auth', 
 
 Route::post('/add-module', [AdminController::class, 'addModule']);
 Route::post('/add-process', [AdminController::class, 'addProcess']);
-
+Route::post('/add-part', [AdminController::class, 'addPart']);
 
 Route::post('/delete-process',  [AdminController::class, 'deleteProcess']);
-Route::post('/delete-module', [AdminController::class, 'deleteModule']); 
+Route::post('/delete-module', [AdminController::class, 'deleteModule'])->name('delete.module');
+Route::post('/delete-part', [AdminController::class, 'deletePart'])->name('delete.part');
 
 Route::post('/update-request', [AdminController::class, 'updateRequest']);
 Route::post('/update-process', [AdminController::class, 'updateProcess']);

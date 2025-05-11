@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Process;
 use App\Models\Module;
 use App\Models\Request as Req;
+use App\Models\Part;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,8 +16,10 @@ class AdminController extends Controller
         $processes = Process::All();
         $modules = Module::All();
         $requests = Req::All();
+        $categories = Part::select('category')->distinct()->pluck('category');
+        $parts = Part::orderBy('category')->get()->groupBy('category');
 
-        return view('admin', compact('processes', 'modules', 'requests'));
+        return view('admin', compact('processes', 'modules', 'requests', 'categories', 'parts'));
     }
 
     public function addModule(Request $request)
@@ -33,7 +36,6 @@ class AdminController extends Controller
 
     public function addProcess(Request $request)
     {
-
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'link' => 'required|string',
@@ -44,9 +46,44 @@ class AdminController extends Controller
         return back()->with('success', 'Process added successfully!');
     }
 
+    public function addPart(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+            'desc' => 'required|string',
+            'image' => 'required|image|mimes:png|max:2048'
+        ]);
+
+        // Create the part first
+        $part = Part::create([
+            'name' => $validated['name'],
+            'category' => $validated['category'],
+            'desc' => $validated['desc']
+        ]);
+
+        // Handle the image upload
+        if ($request->hasFile('image')) {
+            $category = ucwords(strtolower($validated['category'])); // Convert to Title Case
+            $directory = public_path('assets/images/parts/' . $category);
+            
+            // Create directory if it doesn't exist
+            if (!file_exists($directory)) {
+                mkdir($directory, 0755, true);
+            }
+
+            // Store the image
+            $request->file('image')->move(
+                $directory,
+                $validated['name'] . '.png'
+            );
+        }
+
+        return back()->with('success', 'Part added successfully!');
+    }
+
     public function updateRequest(Request $request)
     {
-
         $request->validate([
             'id' => 'required|integer',
             'status' => 'required|string'
@@ -61,7 +98,6 @@ class AdminController extends Controller
 
     public function updateProcess(Request $request)
     {
-
         $request->validate([
             'id' => 'required|integer',
             'link' => 'required|string'
@@ -76,7 +112,6 @@ class AdminController extends Controller
 
     public function updateModule(Request $request)
     {
-
         $request->validate([
             'id' => 'required|integer',
             'link' => 'required|string'
@@ -108,5 +143,23 @@ class AdminController extends Controller
         }
     
         return back()->with('error', 'Module not found.');
+    }
+
+    public function deletePart(Request $request){
+        $part = Part::find($request->id);
+
+        if ($part) {
+            // Delete the image file
+            $imagePath = public_path('assets/images/parts/' . ucwords(strtolower($part->category)) . '/' . $part->name . '.png');
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            // Delete the part record
+            $part->delete();
+            return back()->with('success', 'Part deleted successfully.');
+        }
+    
+        return back()->with('error', 'Part not found.');
     }
 }
