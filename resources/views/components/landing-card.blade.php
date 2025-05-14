@@ -27,7 +27,9 @@
                 </h4>
             @endif
             @if($href)
-                <a href="{{ $href }}" target="_blank" class="m-auto pt-3 transition-all duration-700 ease-in-out opacity-0"
+                <a href="{{ $href }}" 
+                   onclick="window.open('{{ $href }}', '_system'); return false;"
+                   class="m-auto pt-3 transition-all duration-700 ease-in-out opacity-0"
                    :class="{ 'opacity-100': isOpen, 'opacity-0': !isOpen }">
                     <button class="bg-cta text-zinc-600 rounded-full px-4 py-2 transform transition-all duration-700 ease-in-out hover:scale-105">
                         <div class="flex items-center justify-center">

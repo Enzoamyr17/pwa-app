@@ -6,9 +6,15 @@
 
     @php
         $images = glob(public_path('assets/images/explore/endurance/*.jpg'), GLOB_BRACE);
+        $displays = glob(public_path('assets/images/explore/endurance/display/*.jpg'), GLOB_BRACE);
     @endphp
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
+        @foreach ($displays as $image)
+            <div class="border rounded-lg overflow-hidden shadow-md">
+                <img src="{{ asset('assets/images/explore/endurance/display/' . basename($image)) }}" alt="Image" class="w-full h-auto">
+            </div>
+        @endforeach
         @foreach ($images as $image)
             <div class="border rounded-lg overflow-hidden shadow-md">
                 <img src="{{ asset('assets/images/explore/endurance/' . basename($image)) }}" alt="Image" class="w-full h-auto">
