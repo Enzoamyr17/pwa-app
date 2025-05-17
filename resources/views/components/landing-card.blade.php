@@ -2,7 +2,7 @@
 
 <!-- takes the parameters above, 1st-3rd params are required -->
 
-<div class="flex mx-auto block w-11/12 h-auto max-h-24 rounded-3xl shadow-lg overflow-hidden group relative transition-all duration-700 ease-in-out" 
+<div class="flex mx-auto block w-11/12 h-auto max-h-24 rounded-3xl shadow-lg overflow-hidden group relative transition-all duration-700 ease-in-out mt-2" 
      x-data="{ isOpen: false }" 
      @click="isOpen = !isOpen"
      :class="{ 'max-h-[1000px]': isOpen, 'max-h-24': !isOpen }">

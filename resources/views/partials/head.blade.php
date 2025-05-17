@@ -68,5 +68,10 @@
 </script>
 
 @if(request()->is('dashboard') == false)
-  <!-- <script src="//code.tidio.co/UNIQUEKEY.js" async></script> -->
+  <script src="//code.tidio.co/ywrcccgt85ko5atz90bytqin1wp4cgd3.js" async></script>
+  <style>
+    #tidio-chat {
+      bottom: 65px !important;
+    }
+  </style>
 @endif
